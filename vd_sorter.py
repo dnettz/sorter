@@ -23,16 +23,16 @@ def rearrange_videos_by_date(folder_path, output_folder):
         os.makedirs(sorted_folder)
     
     # Copy sorted files to the new folder with a progress bar
-    for i, (file, date) in enumerate(tqdm(files_with_dates, desc="Rearranging videos", unit="file")):
+    for i, (file, date) in enumerate(tqdm(files_with_dates, desc="Copying & Rearranging Files", unit="file")):
         original_path = os.path.join(folder_path, file)
         new_file_name = f"{i+1:03d}_{file}"  # Prepend a number to the filename
         new_file_path = os.path.join(sorted_folder, new_file_name)
         shutil.copy2(original_path, new_file_path)
     
-    print(f"Videos have been rearranged and copied to: {sorted_folder}")
+    print(f"Files have been rearranged and copied to: {sorted_folder}")
 
 # Example usage
-folder_path = input('Video input path: ')
+folder_path = input('Files input path: ')
 # folder_path = '/Desktop'
-output_path = input('Video output path: ')
+output_path = input('Files output path: ')
 rearrange_videos_by_date(folder_path, output_path)
